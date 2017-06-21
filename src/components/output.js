@@ -3,6 +3,7 @@ import React from 'react';
 export default function Output(props){
 
   let encoded;
+  let content;
 
   if(!(props.userName === 'MYUSERNAME' || props.password === 'MYPASSWORD')){
     let toEncode = `${props.userName}:${props.password}`
@@ -11,7 +12,18 @@ export default function Output(props){
     encoded = 'YOUR USERNAME AND PASS AS A BASE64 STRING'
   }
 
-  let content = `
+  if(props.method === "PUT" || props.method === "POST"){
+    content = `
+     return fetch('${props.endpoint}',{
+     method: '${props.method}',
+     headers: {
+       'Content-Type' : '${props.contentType}',
+       'Authorization': '${encoded}'
+     }
+   })
+   `;
+ }else {
+   content = `
     return fetch('${props.endpoint}',{
     method: '${props.method}',
     headers: {
@@ -19,6 +31,9 @@ export default function Output(props){
     }
   })
   `;
+ }
+
+
 
   return(
     <textarea value={content} readOnly/>
