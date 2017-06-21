@@ -36,6 +36,6 @@ export default function Output(props){
 
 
   return(
-    <textarea value={content} readOnly/>
+    <textarea className={props.className} value={content} readOnly/>
   );
 };

@@ -1,0 +1,67 @@
+body{
+  font-family: 'Varela Round', sans-serif;
+}
+
+.container{
+  display:flex;
+}
+
+.header{
+  background-color:#5FAE57;
+  padding:10px;
+}
+
+.logoText{
+  margin-right:10px;
+}
+
+.logoImg{
+  order:0;
+  fill:white;
+  height:35px;
+  margin-top:-6px;
+}
+
+.logoText{
+  order:1;
+  color:white;
+  font-size: 35px;
+}
+
+.logoContainer{
+  flex-direction:column;
+  margin:auto;
+}
+
+main{
+  margin-top:15px;
+}
+
+.welcomeText{
+  text-align: center;
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+.welcomeTextSmool{
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.output{
+  width:400px;
+  height:150px;
+}
+
+.column1{
+  flex-direction:column;
+}
+
+main{
+  flex-direction:column;
+}
+
+.content{
+  justify-content: center;
+  margin:auto;
+}
