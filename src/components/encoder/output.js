@@ -36,6 +36,9 @@ export default function Output(props){
 
 
   return(
-    <textarea className={props.className} value={content} readOnly/>
+    <div>
+      <div className="labelStyle">Output</div>
+      <textarea className={props.className} value={content} readOnly/>
+    </div>
   );
 };
