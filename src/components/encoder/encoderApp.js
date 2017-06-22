@@ -8,11 +8,11 @@ export default class Encoder extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      endpoint: 'https://example.com/api/validate/',
+      endpoint: '',
       method:'POST',
-      userName: 'MYUSERNAME',
-      password: 'MYPASSWORD',
-      contentType: " "
+      userName: '',
+      password: '',
+      contentType: ''
     }
   }
 

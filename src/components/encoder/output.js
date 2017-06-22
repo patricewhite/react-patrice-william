@@ -9,27 +9,29 @@ export default function Output(props){
     let toEncode = `${props.userName}:${props.password}`
     encoded = btoa(toEncode);
   }else{
-    encoded = 'YOUR USERNAME AND PASS AS A BASE64 STRING'
+    encoded = ''
   }
 
   if(props.method === "PUT" || props.method === "POST"){
     content = `
-     return fetch('${props.endpoint}',{
-     method: '${props.method}',
-     headers: {
-       'Content-Type' : '${props.contentType}',
-       'Authorization': '${encoded}'
-     }
-   })
+     return fetch(
+       '${props.endpoint}',{
+          method: '${props.method}',
+          headers: {
+            'Content-Type' : '${props.contentType}',
+            'Authorization': '${encoded}'
+          }
+      })
    `;
  }else {
    content = `
-    return fetch('${props.endpoint}',{
-    method: '${props.method}',
-    headers: {
-      'Authorization': '${encoded}'
-    }
-  })
+    return fetch(
+      '${props.endpoint}',{
+        method: '${props.method}',
+        headers: {
+          'Authorization': '${encoded}'
+         };
+    });
   `;
  }
 
@@ -38,7 +40,9 @@ export default function Output(props){
   return(
     <div>
       <div className="labelStyle">Output</div>
-      <textarea className={props.className} value={content} readOnly/>
+      <div className={props.className}>
+        <pre>{content}</pre>
+      </div>
     </div>
   );
 };
